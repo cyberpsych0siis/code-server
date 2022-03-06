@@ -28,7 +28,7 @@ jobs:
         with:
           image: cyberpsych0siis/code-server
           tags: ${{ steps.branch-name.outputs.current_branch }}
-          registry: thallosaurus.de
+          registry: ${{ secrets.DOCKER_REGISTRY_URL }}
           buildArgs: DEBUG=$DEBUG
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
