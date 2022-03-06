@@ -14,20 +14,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Get branch name
-        id: branch-name
-        uses: tj-actions/branch-names@v5.1
-      - name: Running on the default branch.
-        if: steps.branch-name.outputs.current_branch == 'main'
-        run: echo "Flipping Debug Switch to OFF"
-        env:
-          DEBUG: 0
-        # Outputs: "Running on default: main".
       - name: Docker Build & Push Action
         uses: mr-smithers-excellent/docker-build-push@v5.6
         with:
           image: cyberpsych0siis/code-server
-          tags: ${{ steps.branch-name.outputs.current_branch }}
+          tags: latest
           registry: thallosaurus.de
           buildArgs: DEBUG=$DEBUG
           dockerfile: Dockerfile
