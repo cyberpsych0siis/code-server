@@ -11,6 +11,7 @@ RUN  tar -xzvf code-server2.1698-vsc1.41.1-linux-x86_64.tar.gz
 RUN mv code-server2.1698-vsc1.41.1-linux-x86_64/code-server /opt && mv code-server2.1698-vsc1.41.1-linux-x86_64/README.md /opt && rm -rf code-server2.1698-vsc1.41.1-linux-x86_64 && rm -f code-server2.1698-vsc1.41.1-linux-x86_64.tar.gz
 
 COPY vscode-server/ /opt/
+COPY start.sh /opt/
 
 EXPOSE 8080 
 
@@ -24,5 +25,6 @@ ENV HOME /opt
 ENV PASSWORD iventura
 
 #Execute code server binaries after container is started
-#test
-CMD ["/opt/code-server", "--host", "0.0.0.0", "--port", "8080"]
+
+#CMD ["/opt/code-server", "--host", "0.0.0.0", "--port", "8080"]
+CMD["./start.sh"]
