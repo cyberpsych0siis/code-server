@@ -7,5 +7,5 @@ RUN chmod 777 /opt/start.sh
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
-ENTRYPOINT ["/tini", "--", "/opt/code-server", "--", "--port", "8080", "--host", "0.0.0.0", "--base-path", "$ENDPOINT_BASE_URI"]
+ENTRYPOINT ["/tini", "--", "/opt/code-server", "--"]
 #CMD ["/opt/start.sh"]
