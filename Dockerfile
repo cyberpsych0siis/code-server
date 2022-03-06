@@ -18,6 +18,7 @@ EXPOSE 8080
 WORKDIR /opt
 
 RUN chmod +x -R /opt/code-server
+RUN chmod +X -R /opt/start.sh
 
 ENV HOME /opt
 
