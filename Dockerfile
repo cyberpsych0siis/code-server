@@ -24,4 +24,4 @@ ENV HOME /opt
 ENV PASSWORD iventura
 
 #Execute code server binaries after container is started
-CMD /opt/code-server -p 8080
+CMD /opt/code-server --host 0.0.0.0 --port 8080
